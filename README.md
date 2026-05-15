@@ -3,7 +3,7 @@
 ## Overview
 This project demonstrates the setup and operation of a home SIEM environment using Splunk, Windows Event Logs, and Sysmon. The goal was to simulate real SOC Tier 1 workflows including log analysis, alert triage, and incident investigation.
 
-## Screenshots
+## Detection & Monitoring Evidence
 
 ### SIEM Dashboard (Threat Overview)
 ![SIEM Dashboard](https://github.com/user-attachments/assets/2efffe46-9d1e-4713-889f-ef16ad7ad9d8)
