@@ -3,6 +3,21 @@
 ## Overview
 This project demonstrates the setup and operation of a home SIEM environment using Splunk, Windows Event Logs, and Sysmon. The goal was to simulate real SOC Tier 1 workflows including log analysis, alert triage, and incident investigation.
 
+## Security Focus
+
+- Threat Detection
+- Alert Triage
+- Log Analysis
+- Incident Investigation
+- SIEM Monitoring
+  
+## Lab Architecture
+
+- Windows 10 endpoint configured with Sysmon
+- Splunk Enterprise hosted on Ubuntu Server
+- Splunk Universal Forwarder used for log ingestion
+- Host-only VirtualBox network for isolated testing
+  
 ## Detection & Monitoring Evidence
 
 ### SIEM Dashboard (Threat Overview)
@@ -18,22 +33,37 @@ This project demonstrates the setup and operation of a home SIEM environment usi
 *This view highlights PowerShell script block logging (Event ID 4104), including suspicious commands such as Invoke-WebRequest. These events were analyzed to identify potentially malicious script execution and abnormal system behavior.*
 
 ## Tools & Technologies
+
 - Splunk Enterprise
 - Windows Event Logs
 - Sysmon
 - Splunk Universal Forwarder
 
 ## Key Activities
-- Built a SIEM lab with log forwarding from Windows to Splunk
-- Investigated suspicious activity such as brute force attempts and PowerShell execution
-- Performed alert triage by validating and analyzing log data
-- Simulated attack scenarios to generate and analyze security events
+
+- Configured centralized log collection using Splunk Enterprise
+- Monitored Windows Event Logs and Sysmon telemetry
+- Investigated suspicious authentication and PowerShell activity
+- Performed alert triage and log correlation
+- Simulated attack scenarios to validate detection visibility
 
 ## Detection Use Cases
+
 - Brute-force login attempts (Event ID 4625)
 - Suspicious PowerShell activity (Event ID 4104)
 - Process creation monitoring (Sysmon Event ID 1)
 - Registry persistence detection (Sysmon Event ID 13)
 
-## Full Report
-[Home SIEM Lab Report](./home-siem-lab-report.pdf)
+## MITRE ATT&CK Mapping
+
+- T1110 – Brute Force
+- T1059.001 – PowerShell
+- T1547 – Registry Run Keys / Startup Folder
+
+## Documentation
+
+- [Full Home SIEM Lab Report](./home-siem-lab-report.pdf)
+
+## Conclusion
+
+This project demonstrates foundational SOC Analyst skills including log monitoring, event correlation, alert triage, and investigation of suspicious activity using Splunk and Sysmon telemetry.
