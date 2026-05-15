@@ -1,28 +1,40 @@
 # SOC Detection Scripts
 
-This folder contains beginner SOC Analyst Python detection scripts developed as part of the Home SIEM Lab project.
+This folder contains Python detection scripts developed as part of the Home SIEM Lab project.
 
 ---
 
-## Scripts Included
+# Failed Login Detector – Event ID 4625
 
-### Failed Login Detector – Event ID 4625
+## Purpose
 
-Detects repeated failed login attempts from Windows authentication logs.
+This Python script analyzes failed Windows login events and identifies repeated authentication failures that may indicate brute-force activity.
 
-Features:
+## Features
+
 - Parses CSV log data
-- Detects brute-force style activity
-- Counts failed login attempts by user and host
-- Generates SOC-style alerts
+- Detects repeated failed login attempts
+- Identifies username, host, and source IP
+- Uses configurable alert threshold
+- Simulates SOC alert triage workflow
+- Maps detection to MITRE ATT&CK T1110
 
-Example output:
+## Detection Logic
 
-```text
-ALERT: User 'ibraim' on host 'DESKTOP-BR4IAB0' had 6 failed login attempts.
-```
+- Windows Event ID: 4625
+- MITRE ATT&CK: T1110 – Brute Force
+- Threshold: 5 failed login attempts
 
-Related Detection:
-- Windows Event ID 4625
-- Brute-force detection
-- Authentication monitoring
+## Example Output
+
+See:
+- `failed-login-bruteforce-detection.png`
+
+## Skills Demonstrated
+
+- Python scripting
+- Log analysis
+- SOC alert triage
+- Threat detection
+- CSV parsing
+- Basic detection engineering
