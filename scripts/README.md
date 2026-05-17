@@ -38,3 +38,39 @@ See:
 - Threat detection
 - CSV parsing
 - Basic detection engineering
+
+
+---
+
+# Suspicious PowerShell Detector – Event ID 4104
+
+## Purpose
+
+This Python script analyzes PowerShell execution logs and detects suspicious commands commonly associated with malicious activity.
+
+## Features
+
+- Detects suspicious PowerShell commands
+- Identifies HIGH and CRITICAL severity activity
+- Detects encoded commands and download attempts
+- Maps detections to MITRE ATT&CK
+- Simulates SOC alert triage workflow
+
+## Detection Logic
+
+- Windows Event ID: 4104
+- MITRE ATT&CK: T1059.001 – PowerShell
+
+## Example Output
+
+See:
+- `powershell-suspicious-detection.png`
+
+## Skills Demonstrated
+
+- Python scripting
+- Log analysis
+- Threat detection
+- Detection engineering
+- SOC alert triage
+- MITRE ATT&CK mapping
