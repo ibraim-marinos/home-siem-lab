@@ -53,6 +53,10 @@ index=main sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" Even
 | sort -_time
 ```
 
+MITRE ATT&CK:
+
+* T1057 – Process Discovery
+
 ---
 
 ## Detection 4 – Registry Persistence Activity (Sysmon Event ID 13)
