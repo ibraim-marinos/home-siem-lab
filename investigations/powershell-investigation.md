@@ -32,6 +32,8 @@ The PowerShell logs provided detailed visibility into commands executed on the W
 
 The investigation successfully captured administrative and test commands, demonstrating that PowerShell activity could be monitored and reviewed through centralized logging.
 
+The investigation captured commands such as Get-Process, Get-Service, whoami, and Invoke-WebRequest, demonstrating successful visibility into PowerShell activity through Event ID 4104 logging.
+
 ## Response
 
 To improve endpoint visibility, I incorporated PowerShell logging into the monitoring strategy and validated that Event ID 4104 telemetry was consistently reaching Splunk.
@@ -50,3 +52,7 @@ This provided detailed command execution visibility and improved the ability to 
 * Log analysis
 * SOC investigation workflow
 * Splunk search development
+
+## Lessons Learned
+
+PowerShell is widely used for legitimate administration tasks, making context essential during investigations. Script Block Logging provides valuable visibility into command execution and helps distinguish normal administrative activity from potentially malicious behavior.
