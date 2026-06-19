@@ -1,69 +1,74 @@
 # Detection Rules
 
-This section contains the detection logic developed and validated during the Home SIEM project.
+This section documents the detection logic developed and validated throughout the Home SIEM project.
 
-The detections were designed to identify suspicious activity using Windows Event Logs and Sysmon telemetry collected through Splunk Enterprise.
+## Detection 1 – Failed Login Activity (Event ID 4625)
 
-## Detection 1 – Brute Force Login Activity
+Purpose:
+Identify accounts generating multiple failed authentication attempts.
 
-### Data Source
+Detection Logic:
 
-* Windows Security Logs
-* Event ID 4625
+```spl
+index=main source="WinEventLog:Security" EventCode=4625
+| stats count as failed_attempts by Account_Name, host
+| where failed_attempts >= 5
+```
 
-### Objective
-
-Detect multiple failed authentication attempts occurring within a short period of time.
-
-### MITRE ATT&CK
+MITRE ATT&CK:
 
 * T1110 – Brute Force
 
 ---
 
-## Detection 2 – Suspicious PowerShell Activity
+## Detection 2 – Suspicious PowerShell Activity (Event ID 4104)
 
-### Data Source
+Purpose:
+Monitor PowerShell script execution activity.
 
-* PowerShell Operational Logs
-* Event ID 4104
+Detection Logic:
 
-### Objective
+```spl
+index=main sourcetype="XmlWinEventLog:Microsoft-Windows-PowerShell/Operational" EventID=4104
+| table _time host ScriptBlockText
+| sort -_time
+```
 
-Identify PowerShell commands that may indicate suspicious or unauthorized activity.
-
-### MITRE ATT&CK
+MITRE ATT&CK:
 
 * T1059.001 – PowerShell
 
 ---
 
-## Detection 3 – Process Creation Activity
+## Detection 3 – Process Creation Activity (Sysmon Event ID 1)
 
-### Data Source
+Purpose:
+Monitor process execution activity.
 
-* Sysmon Event ID 1
+Detection Logic:
 
-### Objective
-
-Monitor process execution activity and identify unusual process behavior.
-
-### MITRE ATT&CK
-
-* T1057 – Process Discovery
+```spl
+index=main sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" EventID=1
+| table _time host Image CommandLine User
+| sort -_time
+```
 
 ---
 
-## Detection 4 – Registry Persistence Activity
+## Detection 4 – Registry Persistence Activity (Sysmon Event ID 13)
 
-### Data Source
+Purpose:
+Monitor registry modifications associated with persistence.
 
-* Sysmon Event ID 13
+Detection Logic:
 
-### Objective
+```spl
+index=main sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" EventID=13
+| table _time host TargetObject Details User
+| sort -_time
+```
 
-Detect registry modifications associated with persistence techniques.
+MITRE ATT&CK:
 
-### MITRE ATT&CK
+* T1547 – Boot or Logon Autostart Execution
 
-* T1547.001 – Registry Run Keys / Startup Folder
