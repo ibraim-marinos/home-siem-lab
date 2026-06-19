@@ -30,6 +30,8 @@ The investigation confirmed that Sysmon successfully captured process execution 
 
 The collected telemetry provided visibility into executed processes, command-line arguments, parent processes, and user context.
 
+The investigation captured process execution events including Notepad, Calculator, Task Manager, and PowerShell, demonstrating successful visibility into process activity through Sysmon Event ID 1 telemetry.
+
 ## Response
 
 To improve endpoint monitoring capabilities, process creation telemetry was incorporated into the Home SIEM dashboard.
@@ -38,7 +40,7 @@ This allowed process activity to be reviewed centrally and provided additional v
 
 ## MITRE ATT&CK Mapping
 
-* T1059 – Command and Scripting Interpreter
+* T1057 – Process Discovery
 
 ## Skills Demonstrated
 
@@ -47,3 +49,7 @@ This allowed process activity to be reviewed centrally and provided additional v
 * Command-line investigation
 * Sysmon monitoring
 * Splunk log analysis
+
+## Lessons Learned
+
+Process creation events provide valuable context during investigations by showing which applications were executed, how they were launched, and which users were involved. Reviewing command-line arguments and parent-child relationships can help identify potentially suspicious behavior.
