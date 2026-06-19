@@ -30,6 +30,8 @@ The results showed multiple failed authentication attempts associated with the m
 
 The correlation search successfully identified accounts exceeding the defined threshold, demonstrating that brute-force activity could be detected through centralized log analysis.
 
+The detection identified 6 failed authentication attempts from the same endpoint, exceeding the configured threshold and triggering further investigation.
+
 ## Response
 
 To improve visibility, I created a Splunk detection rule that generates an alert whenever multiple failed logon events exceed a predefined threshold.
@@ -47,3 +49,7 @@ This approach allows suspicious authentication activity to be identified quickly
 * Event correlation
 * SOC investigation workflow
 * Splunk search development
+
+## Lessons Learned
+
+Authentication failures alone do not always indicate malicious activity. Context, frequency, and correlation with other events are important when determining whether an event represents a genuine security threat.
