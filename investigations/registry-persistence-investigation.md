@@ -47,3 +47,7 @@ This provided an additional detection capability for identifying suspicious chan
 * Endpoint investigation
 * Sysmon analysis
 * MITRE ATT&CK mapping
+
+## Lessons Learned
+
+Registry modifications are not always malicious and may result from legitimate software installations or system changes. Monitoring persistence-related registry locations provides valuable visibility into techniques that attackers may use to maintain access after system reboot.
