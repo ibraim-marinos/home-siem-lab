@@ -43,12 +43,16 @@ This project demonstrates the setup and operation of a home SIEM environment usi
 ![PowerShell](https://github.com/user-attachments/assets/2260755f-3f93-4ed2-b868-045e8a514eba)
 *This view highlights PowerShell script block logging (Event ID 4104), including suspicious commands such as Invoke-WebRequest. These events were analyzed to identify potentially malicious script execution and abnormal system behavior.*
 
+
 ## Tools & Technologies
 
 - Splunk Enterprise
 - Windows Event Logs
 - Sysmon
 - Splunk Universal Forwarder
+- VirtualBox
+- Windows 10
+- Ubuntu Server
 
 ## Key Activities
 
