@@ -17,6 +17,17 @@ This project demonstrates the setup and operation of a home SIEM environment usi
 - Splunk Enterprise hosted on Ubuntu Server
 - Splunk Universal Forwarder used for log ingestion
 - Host-only VirtualBox network for isolated testing
+
+## Setup Steps
+
+1. Created Ubuntu Server and Windows 10 virtual machines using VirtualBox.
+2. Installed Splunk Enterprise on Ubuntu Server.
+3. Installed Sysmon on the Windows endpoint.
+4. Installed Splunk Universal Forwarder.
+5. Configured log forwarding from Windows to Splunk.
+6. Verified successful log ingestion.
+7. Created detection rules and dashboards.
+8. Performed attack simulations and investigations.
   
 ## Detection & Monitoring Evidence
 
@@ -60,10 +71,25 @@ This project demonstrates the setup and operation of a home SIEM environment usi
 - T1059.001 – PowerShell
 - T1547 – Registry Run Keys / Startup Folder
 
+## Repository Structure
+
+```text
+architecture/
+detections/
+investigations/
+report/
+screenshots/
+scripts/
+
+README.md
+home-siem-lab-report.pdf
+```
+
 ## Documentation
 
-- [Full Home SIEM Lab Report](./home-siem-lab-report.pdf)
+* [Full Home SIEM Lab Report](./home-siem-lab-report.pdf)
 
 ## Conclusion
 
 This project demonstrates foundational SOC Analyst skills including log monitoring, event correlation, alert triage, and investigation of suspicious activity using Splunk and Sysmon telemetry.
+
